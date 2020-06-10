@@ -95,7 +95,7 @@ Example:
 * "lorem.paragraphs #13#" will return 13 paragraphs.
 * "lorem.words #9#" will return 9 words.
 
-Data formats that can have a length:
+Content formats that can have a length:
 - lorem.words
 - lorem.sentences
 - lorem.paragraphs
