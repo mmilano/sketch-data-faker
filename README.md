@@ -11,11 +11,13 @@ Sketch Data Faker enables you to insert random, yet predictable content into you
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Installation](#installation)
 - [How to Use](#how-to-use)
-  - [Manual Mode](#manual-mode)
-  - [Automatic Mode (Recommended)](#automatic-mode-recommended)
+  - [Using Manual Mode](#using-manual-mode)
+  - [Using Automatic Mode (Recommended)](#using-automatic-mode-recommended)
     - [Automatic Mode Content Types](#automatic-mode-content-types)
+    - [Automatic Mode Content Length](#automatic-mode-content-length)
   - [Layer Renaming Helper](#layer-renaming-helper)
 - [Full List of Available Content](#full-list-of-available-content)
   - [Addresses](#addresses)

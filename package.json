@@ -7,14 +7,12 @@
   },
   "author": "Paul Wright",
   "homepage": "https://sketchfaker.com",
-  {
-    "contributors": [
-      {
-        "name": "m. milano",
-        "url": "https://stochasticnotions.com"
-      }
-    ]
-  }
+  "contributors": [
+    {
+      "name": "michel milano",
+      "url": "https://stochasticnotions.com"
+    }
+  ],
   "identifier": "com.paintedbicycle.sketch.sketchfaker",
   "appcast": ".appcast.xml",
   "icon": "icon.png",
