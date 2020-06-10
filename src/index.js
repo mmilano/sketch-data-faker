@@ -55,7 +55,6 @@ export function onStartup() {
 export function onShutdown() {
   DataSupplier.deregisterDataSuppliers();
 }
-
 export function onSupplyAutomatically(context) {
   supplyFakerData(context);
 }
@@ -83,7 +82,6 @@ export function onSupplyLoremParagraph(context) {
 export function onSupplyLoremParagraphs(context) {
   supplyFakerData(context, 'loremParagraphs');
 }
-
 export function setLayerNameAndData(context) {
   try {
     let identifier = String(__command.identifier());

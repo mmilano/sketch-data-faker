@@ -1,12 +1,20 @@
 {
   "name": "sketch-data-faker",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "A Sketch plugin providing 130+ types of smart placeholder content for your mockups from Faker.js and other sources.",
   "engines": {
     "sketch": ">=3.0"
   },
   "author": "Paul Wright",
   "homepage": "https://sketchfaker.com",
+  {
+    "contributors": [
+      {
+        "name": "m. milano",
+        "url": "https://stochasticnotions.com"
+      }
+    ]
+  }
   "identifier": "com.paintedbicycle.sketch.sketchfaker",
   "appcast": ".appcast.xml",
   "icon": "icon.png",
@@ -20,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paintedbicycle/sketch-data-faker.git"
+    "url": "git+https://github.com/mmilano/sketch-data-faker.git"
   },
   "scripts": {
     "build": "skpm-build",

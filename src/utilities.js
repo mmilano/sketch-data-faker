@@ -9,7 +9,7 @@ export function changeLayerName(newLayerName) {
   try {
     if (selectedLayers.length === 0) {
       UI.message('No layers are selected.');
-      //errors.push('No layers are selected.');
+
     } else {
       selectedLayers.forEach(selectedLayer => {
         let layer = document.getLayerWithID(

@@ -64,16 +64,16 @@ There are 2 ways to use it: Manual and Automatic (Recommended)
 ### Using Automatic Mode (Recommended)
 
 1. In automatic mode you first **rename your layer** to tell the plugin what type of data you want to receive (see the [chart below](#full-list-of-available-content) for all the data types you can use).
-2. Then, you right-click on the layer and go to the `Data Feeds` menu, and inside `Sketch Data Faker`, choose the `Auto (Layer Name)` option. This tells the plugin to read your layer name and insert that type of data. You only need to do this once per layer and you can do it to multiple layers at the same time
+2. Then, you right-click on the layer and go to the `Data Feeds` menu, and inside `Sketch Data Faker`, choose the `Auto (Layer Name)` option. This tells the plugin to read your layer name and insert that type of data. You only need to do this once per layer and you can do it to multiple layers at the same time.
 
-- Your layer text will now be replaced with data matching what you asked for
-- You can refresh to get different content of the same type
-- It also works inside symbols and library imports, offering unique content for each layer
+- Your layer text will now be replaced with data.
+- Refresh to get different content of the same type.
+- It also works inside symbols and library imports, offering unique content for each layer.
 
 #### Automatic Mode Content Types
 
 - The chart below has the data types (i.e. `address.zipCode`) that you can choose from.
-- Make sure to use the exact spelling including capitalization and the "."
+- Make sure to use the exact spelling including capitalization and the "." between the words.
 
 Quick examples:
 - To insert a US Zip Code, rename your text layer `address.zipCode`
@@ -82,6 +82,22 @@ Quick examples:
 - To insert a Company Name, rename your text layer `company.companyName`
 - To insert a Domain Name, rename your text layer `internet.domainName`
 - There are words, colours, cities, states, prices, product names, verbs, adjectives, catch phrases, buzzwords, and more.
+
+#### Automatic Mode Content Length
+
+For some of the plural 'lorem' data types, you can include a parameter to indicate the count, or amount, of fake data.
+
+Add a length parameter at the end of the layer name in the format of a number surrounded by the pound sign "#".
+
+Example:
+* "lorem.paragraphs #13#" will return 13 paragraphs.
+* "lorem.words #9#" will return 9 words.
+
+Data formats that can have a length:
+- lorem.words
+- lorem.sentences
+- lorem.paragraphs
+
 
 ### Layer Renaming Helper
 

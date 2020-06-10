@@ -6,6 +6,24 @@ const faker = require("faker");
 import { showUserErrors } from "./utilities";
 
 export function supplyFakerData(context, type) {
+
+  let delimiter = "#";  // marker to signal quantity
+  // exp1: regexp to parse out the quanity number 
+  let exp1 = new RegExp("\\s?" + delimiter + "(\\d+)" + delimiter + "\\s?", "");
+  // exp2: regexp used to remove everything from the quanity --> to end of name
+  let exp2 = new RegExp("\\s?" + delimiter + "\\d+" + delimiter + ".*", "");
+
+  // figure out if the layer name has a quanitity number associated with it
+  function parseQuantity(t) {
+    let quantity = "";
+
+    let findMatch = t.match(exp1);
+    if (findMatch) {
+      quantity = findMatch[1];
+    }
+    return quantity;
+  }
+  
   let dataKey = context.data.key;
 
   const document = sketch.getSelectedDocument();
@@ -26,6 +44,7 @@ export function supplyFakerData(context, type) {
       // item.id is for regular layers
       layer = document.getLayerWithID(item.id);
       originalLayerName = layer.name;
+
     } else if (item.type === "DataOverride") {
       // For overrides we can just grab the name directly
       // Sketch already knows the layer it's going to apply to so we don't
@@ -33,11 +52,19 @@ export function supplyFakerData(context, type) {
       originalLayerName = item.override.affectedLayer.name;
     }
 
-    let search = originalLayerName.split("|")[0];
+    let methodName = originalLayerName.split("|")[0];
     let locale = originalLayerName.split("|")[1];
 
-    // Set up search string
-    let searchTerm = "{{" + search + "}}";
+    let count = parseQuantity(originalLayerName);
+    //console.log ("count:", count);
+    if (count) {
+      // if there is a quantity, need to construct a name that has the # removed
+      // because that is what the 'auto-mode' uses
+      methodName = originalLayerName.replace(exp2, "");
+    }
+
+    // Set up string for faker
+    // let searchTerm = "{{" + methodName + "}}";
 
     // Set up locale
     if (locale) {
@@ -63,19 +90,27 @@ export function supplyFakerData(context, type) {
         newLayerData = faker.phone.phoneNumber();
         break;
       case "loremSentence":
-        newLayerData = faker.lorem.sentence();
+        newLayerData = faker.lorem.sentence(count);
         break;
       case "loremParagraph":
-        newLayerData = faker.lorem.paragraph();
+        newLayerData = faker.lorem.paragraph(count);
         break;
       case "loremParagraphs":
-        newLayerData = faker.lorem.paragraphs();
+        newLayerData = faker.lorem.paragraphs(count);
         break;
       default:
+        // aka the auto-mode
         // Set custom to true so we can override layer name
         custom = true;
+        let methodCall;
         try {
-          newLayerData = faker.fake(searchTerm);
+          if (count) {
+            // match the goofy faker.js parameter format:  method + "(param)"
+            methodCall = "{{" + methodName + "(" + count + ")}}";
+          } else {
+            methodCall = "{{" + methodName + "}}";
+          }
+          newLayerData = faker.fake(methodCall);
         } catch (e) {
           layerError = true;
           errors.push({
