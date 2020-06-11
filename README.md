@@ -87,18 +87,29 @@ Quick examples:
 
 #### Automatic Mode Content Length
 
-For some of the plural 'lorem' data types, you can include a parameter to indicate the count, or amount, of fake data.
+For the plural 'lorem' data types, you can include a parameter to indicate the count, or amount, of fake data.
 
-Add a length parameter at the end of the layer name in the format of a number surrounded by the pound sign "#".
-
-Example:
-* "lorem.paragraphs #13#" will return 13 paragraphs.
-* "lorem.words #9#" will return 9 words.
+Manually add a length parameter at the end of the layer name in the format of a number surrounded by the pound sign `#`.
 
 Content formats that can have a length:
 - lorem.words
 - lorem.sentences
 - lorem.paragraphs
+
+Examples:
+* `lorem.paragraphs #13#` will return 13 paragraphs.
+* `lorem.words #9#` will return 9 words.
+
+This will work for duplicated layers also. So:
+* `lorem.paragraphs #13# copy 2` will return 13 paragraphs.
+
+
+##### Content Length Parameter Format
+1. the count parameter must come after the regular faker layer name.
+1. one space before the parameter.
+1. The `count` number (integer) must be surrounded by `#`, without spaces: `#9#`
+1. Additional layer name text after the count parameter is allowed and ignored (e.g. "copy", "version1", etc.)
+
 
 
 ### Layer Renaming Helper
