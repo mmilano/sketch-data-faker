@@ -16,6 +16,7 @@
           "SupplyFirstName": "onSupplyFirstName",
           "SupplyLastName": "onSupplyLastName",
           "SupplyPhoneNumber": "onSupplyPhoneNumber",
+          "SupplyLoremWords": "onSupplyLoremWords",
           "SupplyLoremSentence": "onSupplyLoremSentence",
           "SupplyLoremParagraph": "onSupplyLoremParagraph",
           "SupplyLoremParagraphs": "onSupplyLoremParagraphs"

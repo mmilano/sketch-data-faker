@@ -93225,6 +93225,7 @@ var Lorem = function (faker) {
    * @param {number} num number of words, defaults to 3
    */
   self.words = function (num) {
+
       if (typeof num == 'undefined') { num = 3; }
       var words = [];
       for (var i = 0; i < num; i++) {
@@ -93334,7 +93335,6 @@ var Lorem = function (faker) {
 
   return self;
 };
-
 
 module["exports"] = Lorem;
 
@@ -94562,12 +94562,14 @@ function supplyFakerData(context, type) {
 
     var methodName = originalLayerName.split("|")[0];
     var locale = originalLayerName.split("|")[1];
-    var count = parseQuantity(originalLayerName); //console.log ("count:", count);
+    var count = parseQuantity(originalLayerName);
 
     if (count) {
       // if there is a quantity, need to construct a name that has the # removed
       // because that is what the 'auto-mode' uses
       methodName = originalLayerName.replace(exp2, "");
+    } else {
+      count = undefined;
     } // Set up string for faker
     // let searchTerm = "{{" + methodName + "}}";
     // Set up locale
@@ -94598,6 +94600,10 @@ function supplyFakerData(context, type) {
 
       case "phoneNumber":
         newLayerData = faker.phone.phoneNumber();
+        break;
+
+      case "loremWords":
+        newLayerData = faker.lorem.words(count);
         break;
 
       case "loremSentence":
@@ -94660,7 +94666,7 @@ function supplyFakerData(context, type) {
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! exports provided: onStartup, onShutdown, onSupplyAutomatically, onSupplyFullName, onSupplyFirstName, onSupplyLastName, onSupplyEmail, onSupplyPhoneNumber, onSupplyLoremSentence, onSupplyLoremParagraph, onSupplyLoremParagraphs, setLayerNameAndData */
+/*! exports provided: onStartup, onShutdown, onSupplyAutomatically, onSupplyFullName, onSupplyFirstName, onSupplyLastName, onSupplyEmail, onSupplyPhoneNumber, onSupplyLoremWords, onSupplyLoremSentence, onSupplyLoremParagraph, onSupplyLoremParagraphs, setLayerNameAndData */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -94673,6 +94679,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyLastName", function() { return onSupplyLastName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyEmail", function() { return onSupplyEmail; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyPhoneNumber", function() { return onSupplyPhoneNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyLoremWords", function() { return onSupplyLoremWords; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyLoremSentence", function() { return onSupplyLoremSentence; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyLoremParagraph", function() { return onSupplyLoremParagraph; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyLoremParagraphs", function() { return onSupplyLoremParagraphs; });
@@ -94690,6 +94697,7 @@ function onStartup() {
   DataSupplier.registerDataSupplier('public.text', 'Last Name', 'SupplyLastName');
   DataSupplier.registerDataSupplier('public.text', 'Email Address', 'SupplyEmail');
   DataSupplier.registerDataSupplier('public.text', 'Phone Number', 'SupplyPhoneNumber');
+  DataSupplier.registerDataSupplier('public.text', 'Lorem Words', 'SupplyLoremWords');
   DataSupplier.registerDataSupplier('public.text', 'Lorem Sentence', 'SupplyLoremSentence');
   DataSupplier.registerDataSupplier('public.text', 'Lorem Paragraph', 'SupplyLoremParagraph');
   DataSupplier.registerDataSupplier('public.text', 'Lorem Paragraphs', 'SupplyLoremParagraphs');
@@ -94715,6 +94723,9 @@ function onSupplyEmail(context) {
 }
 function onSupplyPhoneNumber(context) {
   Object(_faker__WEBPACK_IMPORTED_MODULE_0__["supplyFakerData"])(context, 'phoneNumber');
+}
+function onSupplyLoremWords(context) {
+  Object(_faker__WEBPACK_IMPORTED_MODULE_0__["supplyFakerData"])(context, 'loremWords');
 }
 function onSupplyLoremSentence(context) {
   Object(_faker__WEBPACK_IMPORTED_MODULE_0__["supplyFakerData"])(context, 'loremSentence');
@@ -94844,6 +94855,7 @@ globalThis['onSupplyFullName'] = __skpm_run.bind(this, 'onSupplyFullName');
 globalThis['onSupplyFirstName'] = __skpm_run.bind(this, 'onSupplyFirstName');
 globalThis['onSupplyLastName'] = __skpm_run.bind(this, 'onSupplyLastName');
 globalThis['onSupplyPhoneNumber'] = __skpm_run.bind(this, 'onSupplyPhoneNumber');
+globalThis['onSupplyLoremWords'] = __skpm_run.bind(this, 'onSupplyLoremWords');
 globalThis['onSupplyLoremSentence'] = __skpm_run.bind(this, 'onSupplyLoremSentence');
 globalThis['onSupplyLoremParagraph'] = __skpm_run.bind(this, 'onSupplyLoremParagraph');
 globalThis['onSupplyLoremParagraphs'] = __skpm_run.bind(this, 'onSupplyLoremParagraphs');
