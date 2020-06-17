@@ -56,13 +56,14 @@ export function supplyFakerData(context, type) {
     let locale = originalLayerName.split("|")[1];
 
     let count = parseQuantity(originalLayerName);
-    //console.log ("count:", count);
+
     if (count) {
       // if there is a quantity, need to construct a name that has the # removed
       // because that is what the 'auto-mode' uses
       methodName = originalLayerName.replace(exp2, "");
+    } else {
+      count = undefined;
     }
-
     // Set up string for faker
     // let searchTerm = "{{" + methodName + "}}";
 
@@ -89,6 +90,9 @@ export function supplyFakerData(context, type) {
       case "phoneNumber":
         newLayerData = faker.phone.phoneNumber();
         break;
+      case "loremWords":
+          newLayerData = faker.lorem.words(count);
+          break;
       case "loremSentence":
         newLayerData = faker.lorem.sentence(count);
         break;
