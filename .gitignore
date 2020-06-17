@@ -1,6 +1,6 @@
-# build artefacts
+# dev artefacts
+*.code-workspace
 .vscode
-.code-workspace
 
 # npm
 node_modules
