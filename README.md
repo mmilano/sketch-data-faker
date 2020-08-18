@@ -358,6 +358,7 @@ See the full list of locales below. Note that Sketch Data Faker will fall back t
 
 ## Changelog
 
+- 0.8.1 - package security updates. no functional changes.
 - 0.8.0 - added an option for the plural lorem data methods to take a 'count' parameter
 - 0.7.0 - Bring back ability to use in Symbols imported from Libraries
 - 0.6.1 - Revert work on library imports in order to fix bug with symbols
