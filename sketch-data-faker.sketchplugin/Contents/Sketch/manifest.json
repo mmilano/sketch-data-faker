@@ -871,7 +871,7 @@
       }
     ]
   },
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "A Sketch plugin providing 130+ types of smart placeholder content for your mockups from Faker.js and other sources.",
   "homepage": "https://sketchfaker.com",
   "name": "Sketch Data Faker",
