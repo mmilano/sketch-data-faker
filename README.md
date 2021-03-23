@@ -358,6 +358,7 @@ See the full list of locales below. Note that Sketch Data Faker will fall back t
 
 ## Changelog
 
+- 0.8.3 - package updates. audit fix of elliptic vulnerability. no functional changes.
 - 0.8.2 - package updates. no functional changes.
 - 0.8.1 - package security updates. no functional changes.
 - 0.8.0 - added an option for the plural lorem data methods to take a 'count' parameter
