@@ -1,6 +1,6 @@
 {
   "name": "sketch-data-faker",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "description": "A Sketch plugin providing 130+ types of smart placeholder content for your mockups from Faker.js and other sources.",
   "engines": {
     "sketch": ">=3.0"
@@ -38,6 +38,6 @@
     "@skpm/builder": "^0.7.11"
   },
   "dependencies": {
-    "faker": "^5.4.0"
+    "faker": "^5.5.2"
   }
 }
